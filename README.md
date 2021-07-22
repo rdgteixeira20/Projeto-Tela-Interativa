@@ -1,3 +1,2 @@
-# teste
-teste de criação de repositório
-teste de edição de repositório
+Estudo e desenvolvimento de tela interativa em PYQT5
+
