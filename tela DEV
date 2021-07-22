@@ -1,0 +1,49 @@
+class Janela (QMainWindow):
+    def __init__(self):
+        super().__init__()
+
+        self.topo = 100
+        self.esquerda = 100
+        self.largura = 800
+        self.altura = 600
+        self.titulo = "Primeira Janela"
+
+        botao1 = QPushButton('LOG',self)
+        botao1.move(50,100)
+        botao1.resize(150,50)
+        botao1.setStyleSheet('QPushButton {background-color:#0FB320;font:bold;font-size:20px}')
+        botao1.clicked.connect(self.botao1_click)
+        ########
+        botao2 = QPushButton('RESET',self)
+        botao2.move(250,100)
+        botao2.resize(150,50)
+        botao2.setStyleSheet('QPushButton {background-color:#0FB320;font:bold;font-size:20px}')
+        botao2.clicked.connect(self.botao2_click)
+        ########
+        self.label_1 = QLabel(self)
+        self.label_1.setText("Teste de Tela")
+        self.label_1.move(240,0)
+        self.label_1.resize(400,50)
+        self.label_1.setStyleSheet('QLabel {font:bold;font-size:20px}')
+        ########
+
+        self.CarregarJanela()
+
+    def CarregarJanela(self):
+        self.setGeometry(self.esquerda,self.topo,self.largura,self.altura)
+        self.setWindowTitle(self.titulo)
+        self.show()
+
+    def botao1_click(self):
+        print('o Botão 1 foi clicado')
+        self.label_1.setText("O botão 1 foi clicado")
+        self.label_1.setStyleSheet('{color:blue;font:bold;font-size:20px}')
+
+    def botao2_click(self):
+        print('O Botão 2 foi clicado')
+        self.label_1.setText("O botão 2 foi clicado")
+
+
+aplicacao = QApplication(sys.argv)
+j = Janela()
+sys.exit(aplicacao.exec())
